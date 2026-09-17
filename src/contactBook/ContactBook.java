@@ -20,8 +20,9 @@ public class ContactBook {
     }
 
     public boolean verifyEqualPhones(){
+        int phone = contacts[0].getPhone();
         for(int i = 0; i < contacts.length; i++){
-            if(i != currentContact && contacts[i].getPhone()== contacts[currentContact].getPhone()){
+            if(i != phone && contacts[i].getPhone() == phone){
                 return true;
             }
         }
