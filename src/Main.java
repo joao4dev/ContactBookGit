@@ -121,6 +121,7 @@ public class Main {
     private static void getName(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt();
+        in.nextLine();
         if(cBook.hasPhone(phone)) {
             System.out.println(cBook.getNameByPhone(phone));
         }
