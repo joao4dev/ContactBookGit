@@ -19,6 +19,15 @@ public class ContactBook {
         return contacts[searchPhoneIndex(phone)].getName();
     }
 
+    public boolean verifyEqualPhones(){
+        for(int i = 0; i < contacts.length; i++){
+            if(i != currentContact && contacts[i].getPhone()== contacts[currentContact].getPhone()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     //Pre: name != null
     public boolean hasContact(String name) {
         return searchIndex(name) >= 0;
