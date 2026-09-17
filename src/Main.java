@@ -13,6 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String GET_NAME      = "GN";
+    public static final String ARE_CONTACTS_EQUAL = "EP";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
 
@@ -24,6 +25,8 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String CONTACTS_WITH_SAME_PHONE = "There are contacts that share phone numbers.";
+    public static final String NO_CONTACTS_WITH_SAME_PHONE = "All contacts have different phone numbers";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -54,6 +57,9 @@ public class Main {
                     break;
                 case GET_NAME:
                     getName(in, cBook);
+                    break;
+                case ARE_CONTACTS_EQUAL:
+                    arePhonesEqual(cBook);
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
@@ -150,6 +156,14 @@ public class Main {
             System.out.println(CONTACT_UPDATED);
         }
         else System.out.println(NAME_NOT_EXIST);
+    }
+
+    private static void arePhonesEqual(ContactBook cBook) {
+        if (cBook.hasEqualContacts()){
+            System.out.println(CONTACTS_WITH_SAME_PHONE);
+        } else {
+            System.out.println(NO_CONTACTS_WITH_SAME_PHONE);
+        }
     }
 
     private static void listAllContacts(ContactBook cBook) {
